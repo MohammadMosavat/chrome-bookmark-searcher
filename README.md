@@ -1,5 +1,4 @@
 # Chrome Bookmark Searcher
-<img width="617" height="356" alt="Screenshot 2025-10-19 131630" src="https://github.com/user-attachments/assets/ccfb3248-8d12-4ab7-b502-12e27439e000" />
 
 A lightweight and fast Chrome extension that helps you quickly search and access your bookmarks with a clean, modern interface.
 
@@ -18,6 +17,7 @@ A lightweight and fast Chrome extension that helps you quickly search and access
 
 ## 📸 Screenshots
 
+<img width="617" height="356" alt="Screenshot 2025-10-19 131630" src="https://github.com/user-attachments/assets/ccfb3248-8d12-4ab7-b502-12e27439e000" />
 <!-- Add screenshots here when available -->
 
 ## 🚀 Installation
@@ -136,3 +136,4 @@ If you have any questions or run into issues, please open an issue on GitHub.
 ---
 
 ⭐ If you find this extension useful, please consider giving it a star on GitHub!
+

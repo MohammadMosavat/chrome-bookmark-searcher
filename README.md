@@ -101,7 +101,7 @@ Contributions are welcome! Here's how you can help:
 
 ## 📝 Future Enhancements
 
-- ✅ Add keyboard navigation for search results
+  ✅ Add keyboard navigation for search results
 - [ ] Implement bookmark folders view
 - [ ] Add sorting options (alphabetical, recently added, etc.)
 - [ ] Support for bookmark tags
@@ -136,5 +136,6 @@ If you have any questions or run into issues, please open an issue on GitHub.
 ---
 
 ⭐ If you find this extension useful, please consider giving it a star on GitHub!
+
 
 

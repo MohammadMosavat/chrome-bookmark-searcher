@@ -1,13 +1,26 @@
 {
   "manifest_version": 3,
   "name": "Bookmarks Searcher",
-  "version": "1.0",
+  "version": "1.1.0",
+  "description": "Search and manage your browser bookmarks quickly and efficiently",
   "permissions": ["bookmarks"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_popup": "index.html",
-    "default_title": "Open Bookmarks Reader"
+    "default_title": "Search Bookmarks",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 }

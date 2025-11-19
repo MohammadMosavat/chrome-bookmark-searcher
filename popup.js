@@ -3,6 +3,8 @@ const resultsDiv = document.getElementById("results");
 
 let currentIndex = -1;
 let bookmarksList = [];
+let allBookmarks = [];
+let searchTimer = null;
 
 function getFavicon(url) {
   try {
@@ -16,6 +18,8 @@ function getFavicon(url) {
 function renderBookmarks(bookmarks) {
   resultsDiv.innerHTML = "";
   bookmarksList = bookmarks.filter((b) => b.url);
+
+  const fragment = document.createDocumentFragment();
 
   bookmarksList.forEach((b, i) => {
     const div = document.createElement("div");
@@ -52,32 +56,34 @@ function renderBookmarks(bookmarks) {
       chrome.tabs.create({ url: b.url });
     });
 
-    resultsDiv.appendChild(div);
+    fragment.appendChild(div);
   });
 
+  resultsDiv.appendChild(fragment);
   currentIndex = -1;
 }
 
 chrome.bookmarks.getTree((tree) => {
   const children = tree[0].children[0]?.children || [];
-  renderBookmarks(children);
+  renderBookmarks(allBookmarks);
 });
 
 searchInput.focus();
 searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim();
+  clearTimeout(searchTimer);
 
-  if (!query) {
-    chrome.bookmarks.getTree((tree) => {
-      const children = tree[0].children[0]?.children || [];
-      renderBookmarks(children);
+  searchTimer = setTimeout(() => {
+    const query = searchInput.value.trim();
+
+    if (!query) {
+      renderBookmarks(allBookmarks);
+      return;
+    }
+
+    chrome.bookmarks.search(query, (results) => {
+      renderBookmarks(results);
     });
-    return;
-  }
-
-  chrome.bookmarks.search({ query }, (bookmarks) => {
-    renderBookmarks(bookmarks);
-  });
+  }, 200);
 });
 
 searchInput.addEventListener("keydown", (e) => {
